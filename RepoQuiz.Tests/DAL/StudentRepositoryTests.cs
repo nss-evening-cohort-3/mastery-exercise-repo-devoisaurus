@@ -6,6 +6,7 @@ using RepoQuiz.Models;
 using System.Data.Entity;
 using System.Collections.Generic;
 using System.Linq;
+using System.Collections;
 
 namespace RepoQuiz.Tests.DAL
 {
@@ -25,6 +26,7 @@ namespace RepoQuiz.Tests.DAL
             student_table = new Mock<DbSet<Student>>();
             student1 = new Student
             {
+                StudentID = 12,
                 FirstName = "Mary",
                 LastName = "Sue",
                 Major = "Physics"
@@ -32,6 +34,7 @@ namespace RepoQuiz.Tests.DAL
 
             student2 = new Student
             {
+                StudentID = 37,
                 FirstName = "Joey",
                 LastName = "Jones",
                 Major = "Gym"
@@ -58,6 +61,47 @@ namespace RepoQuiz.Tests.DAL
             student_context = null;
             student_table = null;
             students = null;
+        }
+
+        [TestMethod]
+        public void CanMakeAnInstanceOfRepo()
+        {
+            
+            StudentRepo student_repo = new StudentRepo();
+            Assert.IsNotNull(student_repo);
+        }
+
+        [TestMethod]
+        public void RepoCanAccessContextPassedIn()
+        {
+            StudentRepo student_repo = new StudentRepo(student_context.Object);
+            Assert.IsNotNull(student_repo);
+        }
+
+        [TestMethod]
+        public void RepoCanGetAllStudents()
+        {
+            //Arrange
+            StudentRepo student_repo = new StudentRepo(student_context.Object);
+
+            //Act
+            List<Student> myStudents = student_repo.GetAllStudents();
+
+            //Assert
+            CollectionAssert.AreEqual(myStudents, students);
+        }
+
+        [TestMethod]
+        public void CanGetSingleStudentById()
+        {
+            //Arrange
+            StudentRepo student_repo = new StudentRepo(student_context.Object);
+
+            //Act
+            Student myStudents = student_repo.GetStudentById(37);
+
+            //Assert
+            Assert.AreEqual(myStudents, student2);
         }
     }
 }
