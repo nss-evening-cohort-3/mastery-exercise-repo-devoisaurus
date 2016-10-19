@@ -144,6 +144,10 @@
     <Compile Include="Migrations\201610172109001_initialcreate.Designer.cs">
       <DependentUpon>201610172109001_initialcreate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201610180039515_students.cs" />
+    <Compile Include="Migrations\201610180039515_students.Designer.cs">
+      <DependentUpon>201610180039515_students.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Student.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -183,10 +187,10 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Student\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Student\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -199,6 +203,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201610172109001_initialcreate.resx">
       <DependentUpon>201610172109001_initialcreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610180039515_students.resx">
+      <DependentUpon>201610180039515_students.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

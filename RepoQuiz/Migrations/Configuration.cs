@@ -1,5 +1,6 @@
 namespace RepoQuiz.Migrations
 {
+    using Models;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
@@ -26,6 +27,20 @@ namespace RepoQuiz.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
+
+            context.Students.AddOrUpdate(
+                s => s.FirstName,
+                new Student { FirstName = "Rosalyn", LastName = "Davies", Major = "Chemistry" },
+                new Student { FirstName = "Pamela", LastName = "Banks", Major = "Psychology" },
+                new Student { FirstName = "Timothy", LastName = "Rigby", Major = "Microbiology" },
+                new Student { FirstName = "Crispin", LastName = "Linwood", Major = "Drama" },
+                new Student { FirstName = "Keri", LastName = "Mathers", Major = "Art History" },
+                new Student { FirstName = "Tanya", LastName = "Poole", Major = "Pre-law" },
+                new Student { FirstName = "Dunston", LastName = "Roberts", Major = "Anthropology" },
+                new Student { FirstName = "Renee", LastName = "Fairchild", Major = "Forensic Science" },
+                new Student { FirstName = "Lucas", LastName = "Wilkinson", Major = "History" },
+                new Student { FirstName = "Corrine", LastName = "Hunter", Major = "Philosophy" }
+                );
         }
     }
 }

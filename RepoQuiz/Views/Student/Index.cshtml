@@ -1,0 +1,30 @@
+﻿
+@{
+    ViewBag.Title = "Student";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Students</h2>
+
+<table>
+    <colgroup span="4"> </colgroup>
+    <tr>
+        <th>Student ID</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Major</th>
+    </tr>
+    <tr>
+        @{ 
+            for (int i = 0; i < ViewBag.Students.Count; i++)
+            {
+                <td>@ViewBag.Students[i].StudentID</td>
+                <td>@ViewBag.Students[i].FirstName</td>
+                <td>@ViewBag.Students[i].LastName</td>
+                <td>@ViewBag.Students[i].Major</td>
+            }
+        }
+    </tr>
+</table>
+
+
